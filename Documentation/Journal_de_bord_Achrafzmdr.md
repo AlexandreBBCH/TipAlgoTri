@@ -4,9 +4,16 @@
 Rédigez par **Achraf Zamader** de la P3C
 
 ## | Jour de la Semaine | Jour en nombre| Mois | Année | 
-### Matinée : <br>
+### Tâche prévue dans la matinée : <br>
+- Objectif 1
+- Objectif 2
 
-
-### Après-midi : <br>
+### Tâche prévue dans l'après-midi : <br>
+- Objectif 1
+- Objectif 2
 
 ### Récapitulatif de cette journée :
+
+### Tâche prévue pour le lendemain :
+- Reparation de bug
+- Finir x tâche...
