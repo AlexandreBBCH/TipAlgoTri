@@ -12,68 +12,86 @@ namespace AlgoTri
 {
     public partial class FrmComb : Form
     {
+        int[] tab = Enumerable.Range(1, 20).OrderBy(x => Guid.NewGuid()).Take(20).ToArray();
+        int currentGap;
+        bool hasSwapped = true;
 
-        float timer = 0f;
-        private displaySort displaySort;
         public FrmComb()
         {
+            currentGap = tab.Length;
             InitializeComponent();
-
 
         }
 
         private void btnStartSort_Click(object sender, EventArgs e)
         {
-            sortLikeAComb();
-            displaySort.DrawRectangle(this.CreateGraphics());
+            timer1.Interval = 500;
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
         }
 
 
-
-
-
-        private void sortLikeAComb()
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            int[] tab = new int[20] { 11, 2, 7, 20, 3, 17, 6, 1, 15, 8, 10, 12, 14, 16, 19, 9, 18, 4, 13, 5 };
-            foreach (int i in tab)
+            if (hasSwapped)
             {
-                txbComb.Text += i + " ";
-
-            }
-            txbComb.Text += "\r\n";
-            int gap = tab.Length;
-            bool swapped = true;
-            while (gap > 1 || swapped)
-            {
-                if (gap > 1)
+                hasSwapped = false;
+                for (int i = 0; i < tab.Length - currentGap; i++)
                 {
-                    gap = (int)(gap / 1.3);
-                }
-                int i = 0;
-                swapped = false;
-                while (i + gap < tab.Length)
-                {
-                    if (tab[i].CompareTo(tab[i + gap]) > 0)
+                    int j = i + currentGap;
+                    if (tab[i] > tab[j])
                     {
-                        int t = tab[i];
-                        tab[i] = tab[i + gap];
-                        tab[i + gap] = t;
-                        swapped = true;
-                        displaySort = new displaySort(20 + i * 5, 40, 20, i + 10);
+                        int temp = tab[i];
+                        tab[i] = tab[j];
+                        tab[j] = temp;
+                        hasSwapped = true;
                     }
-                    i++;
-
                 }
             }
-            foreach (int i in tab)
+            else
             {
-                txbComb.Text += i + " ";
+                if (currentGap > 1)
+                {
+                    currentGap = (int)(currentGap / 1.3);
+                }
+                else
+                {
+                    currentGap = 1;
+                    hasSwapped = true;
+                }
             }
-            txbComb.Text += "\r\n";
 
+            DisplayElements();
 
+            // Si le tri est terminé, continuer à afficher le dernier tableau
+            if (currentGap == 1 && !hasSwapped)
+            {
+                currentGap = 0;
+            }
         }
 
 
+        private void DisplayElements()
+        {
+            int rectWidth = 30;
+            int rectHeightFactor = 10;
+            int rectSpacing = 10;
+            int rectXOffset = 20;
+            int rectYOffset = 20;
+
+            Graphics g = panelResultat.CreateGraphics();
+            g.Clear(Color.White);
+
+            for (int i = 0; i < tab.Length; i++)
+            {
+                int rectHeight = tab[i] * rectHeightFactor;
+                int rectX = rectXOffset + i * (rectWidth + rectSpacing);
+                int rectY = rectYOffset + (200 - rectHeight);
+
+                Rectangle rect = new Rectangle(rectX, rectY, rectWidth, rectHeight);
+                g.DrawRectangle(Pens.Black, rect);
+                g.DrawString(tab[i].ToString(), Font, Brushes.Black, rectX, rectY + rectHeight + 5);
+            }
+        }
     }
 }

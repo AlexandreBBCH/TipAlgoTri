@@ -28,35 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnStartSort = new Button();
-            txbComb = new TextBox();
+            components = new System.ComponentModel.Container();
             rbStepByStep = new RadioButton();
-            rbVerySlow = new RadioButton();
-            rbSlow = new RadioButton();
-            rbNormal = new RadioButton();
             rbFast = new RadioButton();
+            rbVerySlow = new RadioButton();
+            rbNormal = new RadioButton();
+            rbSlow = new RadioButton();
             gbSpeedAnimation = new GroupBox();
+            buttonStartSort = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
+            panelResultat = new Panel();
             gbSpeedAnimation.SuspendLayout();
             SuspendLayout();
-            // 
-            // btnStartSort
-            // 
-            btnStartSort.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            btnStartSort.Location = new Point(422, 373);
-            btnStartSort.Name = "btnStartSort";
-            btnStartSort.Size = new Size(279, 46);
-            btnStartSort.TabIndex = 0;
-            btnStartSort.Text = "Trie";
-            btnStartSort.UseVisualStyleBackColor = true;
-            btnStartSort.Click += btnStartSort_Click;
-            // 
-            // txbComb
-            // 
-            txbComb.Location = new Point(236, 80);
-            txbComb.Multiline = true;
-            txbComb.Name = "txbComb";
-            txbComb.Size = new Size(672, 249);
-            txbComb.TabIndex = 1;
             // 
             // rbStepByStep
             // 
@@ -70,6 +53,16 @@
             rbStepByStep.Text = "Pas à pas";
             rbStepByStep.UseVisualStyleBackColor = true;
             // 
+            // rbFast
+            // 
+            rbFast.AutoSize = true;
+            rbFast.Location = new Point(6, 122);
+            rbFast.Name = "rbFast";
+            rbFast.Size = new Size(61, 19);
+            rbFast.TabIndex = 6;
+            rbFast.Text = "Rapide";
+            rbFast.UseVisualStyleBackColor = true;
+            // 
             // rbVerySlow
             // 
             rbVerySlow.AutoSize = true;
@@ -79,16 +72,6 @@
             rbVerySlow.TabIndex = 3;
             rbVerySlow.Text = "Très lent";
             rbVerySlow.UseVisualStyleBackColor = true;
-            // 
-            // rbSlow
-            // 
-            rbSlow.AutoSize = true;
-            rbSlow.Location = new Point(6, 72);
-            rbSlow.Name = "rbSlow";
-            rbSlow.Size = new Size(48, 19);
-            rbSlow.TabIndex = 4;
-            rbSlow.Text = "Lent";
-            rbSlow.UseVisualStyleBackColor = true;
             // 
             // rbNormal
             // 
@@ -100,15 +83,15 @@
             rbNormal.Text = "Normal";
             rbNormal.UseVisualStyleBackColor = true;
             // 
-            // rbFast
+            // rbSlow
             // 
-            rbFast.AutoSize = true;
-            rbFast.Location = new Point(6, 122);
-            rbFast.Name = "rbFast";
-            rbFast.Size = new Size(61, 19);
-            rbFast.TabIndex = 6;
-            rbFast.Text = "Rapide";
-            rbFast.UseVisualStyleBackColor = true;
+            rbSlow.AutoSize = true;
+            rbSlow.Location = new Point(6, 72);
+            rbSlow.Name = "rbSlow";
+            rbSlow.Size = new Size(48, 19);
+            rbSlow.TabIndex = 4;
+            rbSlow.Text = "Lent";
+            rbSlow.UseVisualStyleBackColor = true;
             // 
             // gbSpeedAnimation
             // 
@@ -117,38 +100,55 @@
             gbSpeedAnimation.Controls.Add(rbVerySlow);
             gbSpeedAnimation.Controls.Add(rbNormal);
             gbSpeedAnimation.Controls.Add(rbSlow);
-            gbSpeedAnimation.Location = new Point(12, 133);
+            gbSpeedAnimation.Location = new Point(12, 139);
             gbSpeedAnimation.Name = "gbSpeedAnimation";
             gbSpeedAnimation.Size = new Size(193, 154);
-            gbSpeedAnimation.TabIndex = 7;
+            gbSpeedAnimation.TabIndex = 10;
             gbSpeedAnimation.TabStop = false;
             gbSpeedAnimation.Text = "Vitesse d'éxécution";
+            // 
+            // buttonStartSort
+            // 
+            buttonStartSort.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonStartSort.Location = new Point(498, 392);
+            buttonStartSort.Name = "buttonStartSort";
+            buttonStartSort.Size = new Size(279, 46);
+            buttonStartSort.TabIndex = 13;
+            buttonStartSort.Text = "Trie";
+            buttonStartSort.UseVisualStyleBackColor = true;
+            buttonStartSort.Click += btnStartSort_Click;
+            // 
+            // panelResultat
+            // 
+            panelResultat.Location = new Point(211, 12);
+            panelResultat.Name = "panelResultat";
+            panelResultat.Size = new Size(830, 361);
+            panelResultat.TabIndex = 14;
             // 
             // FrmComb
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1053, 450);
+            Controls.Add(panelResultat);
+            Controls.Add(buttonStartSort);
             Controls.Add(gbSpeedAnimation);
-            Controls.Add(txbComb);
-            Controls.Add(btnStartSort);
             Name = "FrmComb";
             Text = "FrmComb";
             gbSpeedAnimation.ResumeLayout(false);
             gbSpeedAnimation.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Button btnStartSort;
-        private TextBox txbComb;
         private RadioButton rbStepByStep;
-        private RadioButton rbVerySlow;
-        private RadioButton rbSlow;
-        private RadioButton rbNormal;
         private RadioButton rbFast;
+        private RadioButton rbVerySlow;
+        private RadioButton rbNormal;
+        private RadioButton rbSlow;
         private GroupBox gbSpeedAnimation;
+        private Button buttonStartSort;
+        private System.Windows.Forms.Timer timer1;
+        private Panel panelResultat;
     }
 }
