@@ -61,7 +61,7 @@ J'ai reussi à mettre en place le visuel d'Achraf.
 - Terminer les visuel graphique de base des 2 dernier algo.
 
 ### Récapitulatif de cette journée :
-J'ai reussi à compléter les derniers algorithme et mettre le visuel de base en marche.
+- J'ai reussi à compléter les derniers algorithme et mettre le visuel de base en marche.
 
 ### Tâche prévue pour le lendemain :
 - Commencer à explorer sur un déplacement visible en direct des chiffres de graphique.
@@ -70,12 +70,13 @@ J'ai reussi à compléter les derniers algorithme et mettre le visuel de base en
 
 ## | Mercredi | 10 | 05 | 2023 | 
 ### Tâche prévue dans la matinée : <br>
-- 
+- Explorer les possibilités de rendue visuel pour le graphique plus intuitif.
 
 ### Tâche prévue dans l'après-midi : <br>
-- 
+- Explorer les possibilités de rendue visuel pour le graphique plus intuitif.
 
 ### Récapitulatif de cette journée :
-
+- Bon nous avons tenter certaine technique mais pas très concluante , on retentera demain. Notre PO nous à un peu près reorienté.
 
 ### Tâche prévue pour le lendemain :
+- Tester l'idée de notre PO
