@@ -80,3 +80,19 @@ J'ai reussi à mettre en place le visuel d'Achraf.
 
 ### Tâche prévue pour le lendemain :
 - Tester l'idée de notre PO
+
+
+## | Mercredi | 11 | 05 | 2023 | 
+### Tâche prévue dans la matinée : <br>
+- Appliquer l'idée de notre PO.
+
+### Tâche prévue dans l'après-midi : <br>
+- Réfléchir à comment rendre visuel le pseudo code en direct du run de trie.
+- L'appliquer dans un des algos
+
+### Récapitulatif de cette journée :
+- Bon alors, on a essayé plusieurs technique mais rien de concluant donc on reprendra lundi après un bon weekend de sommeil et des idées nouvelles toutes fraîche.
+L'après midi, Achraf n'était pas la .
+
+### Tâche prévue pour le lendemain :
+- Appliqué les idée penser pendant le weekend.
