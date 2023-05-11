@@ -5,7 +5,7 @@ namespace AlgoTri
     public partial class FrmBubble : Form
     {
         // Liste à trier
-        int[] tab = new int[20] { 11, 2, 7, 20, 3, 17, 6, 1, 15, 8, 10, 12, 14, 16, 19, 9, 18, 4, 13, 5 };
+        int[] tab = Enumerable.Range(1, 20).OrderBy(x => Guid.NewGuid()).Take(20).ToArray();
         // Variable de l'élément actuel
         int currentElementIndex = 0;
         public FrmBubble()
@@ -51,7 +51,7 @@ namespace AlgoTri
                 currentElementIndex = 0;
             }
         }
-
+        
         private void DisplayElements()
         {
             // Affichage des rectangles
@@ -76,7 +76,7 @@ namespace AlgoTri
                 // On créer le rectangle avec les valeurs qu'on a calculé
                 Rectangle rect = new Rectangle(rectX, rectY, rectWidth, rectHeight);
                 // On le dessine en noir et on met la valeur de l'élément en question en dessous avec la bonne police et la bonne couleur (noire)
-                g.DrawRectangle(Pens.Black, rect);
+                g.DrawRectangle(Pens.Black, rect)   ;
                 g.DrawString(tab[i].ToString(), Font, Brushes.Black, rectX, rectY + rectHeight + 5);
             }
         }
