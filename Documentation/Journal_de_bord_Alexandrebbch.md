@@ -96,3 +96,18 @@ L'après midi, Achraf n'était pas la .
 
 ### Tâche prévue pour le lendemain :
 - Appliqué les idée penser pendant le weekend.
+
+
+## | Lundi | 22 | 05 | 2023 | 
+### Tâche prévue dans la matinée : <br>
+- J'était malade jusqua aujourd'huis résultat donc je vais me reassimilé le projet
+
+### Tâche prévue dans l'après-midi : <br>
+- Affichage couleur du graphiquer en direct
+- Ajout dune class pour les fonction d'affichage
+
+### Récapitulatif de cette journée :
+- Bon alors, jai reussi a faire l'affiage voulue et optimiser en une class la partie qui affiche un graphique
+
+### Tâche prévue pour le lendemain :
+- Avec l'aide d'achraf malade aujourd'hui on va tenter d'avoir le visuel du pseudocode.
