@@ -4,7 +4,6 @@ C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\bin\Debug\net6.0
 C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\bin\Debug\net6.0-windows\AlgoTri.dll
 C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\bin\Debug\net6.0-windows\AlgoTri.pdb
 C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0-windows\AlgoTri.csproj.AssemblyReference.cache
-C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0-windows\AlgoTri.AlgoTrie.resources
 C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0-windows\AlgoTri.csproj.GenerateResource.cache
 C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0-windows\AlgoTri.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0-windows\AlgoTri.AssemblyInfoInputs.cache
@@ -20,3 +19,4 @@ C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0
 C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0-windows\AlgoTri.FrmInsert.resources
 C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0-windows\AlgoTri.FrmSelect.resources
 C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0-windows\AlgoTri.FrmShell.resources
+C:\Users\Admin\Documents\GitHub\TipAlgoTri\Code\AlgoTri\AlgoTri\obj\Debug\net6.0-windows\AlgoTri.AlgoTri.resources

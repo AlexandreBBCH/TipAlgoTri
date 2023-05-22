@@ -18,12 +18,13 @@ namespace AlgoTri
         int nextIndex;
         // Initialise un booléen pour indiquer si le tri est terminé
         bool isSorted = false;
-
+        DisplayClass dc;
         public FrmSelect()
         {
             // Initialise l'index à 1, car le premier élément est considéré comme trié
             nextIndex = 1;
             InitializeComponent();
+            dc = new DisplayClass();    
         }
 
 
@@ -64,36 +65,10 @@ namespace AlgoTri
             }
 
             // Met à jour l'affichage
-            DisplayElements();
+            dc.DisplayElements(tab, panelResultat, Font);
         }
 
-        private void DisplayElements()
-        {
-            // On définit les dimensions des rectangles représentant les éléments
-            int rectWidth = 30;
-            int rectHeightFactor = 10;
-            int rectSpacing = 10;
-            int rectXOffset = 20;
-            int rectYOffset = 20;
-
-            // On crée un objet Graphics à partir du panneau
-            Graphics g = panelResultat.CreateGraphics();
-            g.Clear(Color.White);
-
-            // On boucle sur tous les éléments du tableau
-            for (int i = 0; i < tab.Length; i++)
-            {
-                // On calcule la hauteur et la position du rectangle
-                int rectHeight = tab[i] * rectHeightFactor;
-                int rectX = rectXOffset + i * (rectWidth + rectSpacing);
-                int rectY = rectYOffset + (200 - rectHeight);
-
-                // On dessine le rectangle et le texte à l'intérieur
-                Rectangle rect = new Rectangle(rectX, rectY, rectWidth, rectHeight);
-                g.DrawRectangle(Pens.Black, rect);
-                g.DrawString(tab[i].ToString(), Font, Brushes.Black, rectX, rectY + rectHeight + 5);
-            }
-        }
+     
 
         private void buttonStartSort_Click(object sender, EventArgs e)
         {

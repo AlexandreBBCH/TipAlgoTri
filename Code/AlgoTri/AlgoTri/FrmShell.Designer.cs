@@ -134,7 +134,7 @@
             Controls.Add(buttonStartSort);
             Controls.Add(gbSpeedAnimation);
             Name = "FrmShell";
-            Text = "FrmComb";
+            Text = "FrmShell";
             gbSpeedAnimation.ResumeLayout(false);
             gbSpeedAnimation.PerformLayout();
             ResumeLayout(false);

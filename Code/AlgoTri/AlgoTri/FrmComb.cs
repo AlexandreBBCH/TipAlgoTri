@@ -18,11 +18,14 @@ namespace AlgoTri
         // Initialise un booléen pour indiquer si des échanges ont été effectués lors de la dernière itération de tri.
         bool hasSwapped = true;
 
+        DisplayClass dc;
+
         public FrmComb()
         { 
             // Initialise la taille de l'intervalle de tri à la taille du tableau
             currentGap = tab.Length;
             InitializeComponent();
+            dc = new DisplayClass();
 
         }
 
@@ -74,7 +77,7 @@ namespace AlgoTri
             }
 
             // On met à jour l'affichage
-            DisplayElements();
+            dc.DisplayElements(tab, panelResultat, Font);
 
             // Si le tri est terminé, continuer à afficher le dernier tableau
             if (currentGap == 1 && !hasSwapped)
@@ -84,33 +87,6 @@ namespace AlgoTri
         }
 
         // Cette fonction dessine les éléments du tableau dans un panneau
-        private void DisplayElements()
-        {
-            // On définit les dimensions des rectangles représentant les éléments
-            int rectWidth = 30;
-            int rectHeightFactor = 10;
-            int rectSpacing = 10;
-            int rectXOffset = 20;
-            int rectYOffset = 20;
-
-            // On crée un objet Graphics à partir du panneau
-            Graphics g = panelResultat.CreateGraphics();
-            g.Clear(Color.White);
-
-            // On boucle sur tous les éléments du tableau
-            for (int i = 0; i < tab.Length; i++)
-            {
-                // On calcule la hauteur et la position du rectangle
-                int rectHeight = tab[i] * rectHeightFactor;
-                int rectX = rectXOffset + i * (rectWidth + rectSpacing);
-                int rectY = rectYOffset + (200 - rectHeight);
-
-                // On dessine le rectangle et le texte à l'intérieur
-                Rectangle rect = new Rectangle(rectX, rectY, rectWidth, rectHeight);
-                g.DrawRectangle(Pens.Black, rect);
-                g.DrawString(tab[i].ToString(), Font, Brushes.Black, rectX, rectY + rectHeight + 5);
-            }
-        }
-
+      
     }
 }
