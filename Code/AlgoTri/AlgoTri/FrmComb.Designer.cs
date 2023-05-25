@@ -41,6 +41,7 @@
             btnStop = new Button();
             btnContinuer = new Button();
             lblDebug = new Label();
+            txbPseudoCode = new TextBox();
             gbSpeedAnimation.SuspendLayout();
             SuspendLayout();
             // 
@@ -157,11 +158,20 @@
             lblDebug.TabIndex = 17;
             lblDebug.Text = "Debugger";
             // 
+            // txbPseudoCode
+            // 
+            txbPseudoCode.Location = new Point(1068, 12);
+            txbPseudoCode.Multiline = true;
+            txbPseudoCode.Name = "txbPseudoCode";
+            txbPseudoCode.Size = new Size(300, 200);
+            txbPseudoCode.TabIndex = 18;
+            // 
             // FrmComb
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1053, 450);
+            ClientSize = new Size(1380, 450);
+            Controls.Add(txbPseudoCode);
             Controls.Add(lblDebug);
             Controls.Add(btnContinuer);
             Controls.Add(btnStop);
@@ -189,5 +199,6 @@
         private Button btnStop;
         private Button btnContinuer;
         private Label lblDebug;
+        private TextBox txbPseudoCode;
     }
 }

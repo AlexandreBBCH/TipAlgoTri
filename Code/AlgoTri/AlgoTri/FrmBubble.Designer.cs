@@ -38,6 +38,7 @@
             buttonStartSort = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             panelResultat = new Panel();
+            txbPseudoCode = new TextBox();
             gbSpeedAnimation.SuspendLayout();
             SuspendLayout();
             // 
@@ -125,11 +126,20 @@
             panelResultat.Size = new Size(830, 361);
             panelResultat.TabIndex = 14;
             // 
+            // txbPseudoCode
+            // 
+            txbPseudoCode.Location = new Point(1079, 12);
+            txbPseudoCode.Multiline = true;
+            txbPseudoCode.Name = "txbPseudoCode";
+            txbPseudoCode.Size = new Size(300, 200);
+            txbPseudoCode.TabIndex = 15;
+            // 
             // FrmBubble
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1053, 450);
+            ClientSize = new Size(1445, 450);
+            Controls.Add(txbPseudoCode);
             Controls.Add(panelResultat);
             Controls.Add(buttonStartSort);
             Controls.Add(gbSpeedAnimation);
@@ -138,6 +148,7 @@
             gbSpeedAnimation.ResumeLayout(false);
             gbSpeedAnimation.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -150,5 +161,6 @@
         private Button buttonStartSort;
         private System.Windows.Forms.Timer timer1;
         private Panel panelResultat;
+        private TextBox txbPseudoCode;
     }
 }
