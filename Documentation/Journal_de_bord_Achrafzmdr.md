@@ -79,14 +79,15 @@ Tâches réalisées :
 - Tester l'idée de notre PO.
 
 
-## | Mercredi | 11 | 05 | 2023 | 
+## | Jeudi | 11 | 05 | 2023 | 
 ### Tâche prévue dans la matinée : <br>
-
+- Réfléchir à une manière d'afficher le suivi de l'éxécution du programme en pseudo-code.
 
 ### Tâche prévue dans l'après-midi : <br>
-
+- Réfléchir à une manière d'afficher le suivi de l'éxécution du programme en pseudo-code.
 
 ### Récapitulatif de cette journée :
-
+- Nous avons trouvé une manière qui pourrait potentiellement fonctionner. Nous devons d'abord finir d'implémenter les vitesses d'éxécution des algorithmes pour le faire.
 
 ### Tâche prévue pour le lendemain :
+- Implémenter les vitesses d'éxécution des algorithmes.
