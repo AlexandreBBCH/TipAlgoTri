@@ -39,6 +39,8 @@
             timer1 = new System.Windows.Forms.Timer(components);
             panelResultat = new Panel();
             txbPseudoCode = new TextBox();
+            btnContinuer = new Button();
+            btnStop = new Button();
             gbSpeedAnimation.SuspendLayout();
             SuspendLayout();
             // 
@@ -111,9 +113,9 @@
             // buttonStartSort
             // 
             buttonStartSort.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonStartSort.Location = new Point(498, 392);
+            buttonStartSort.Location = new Point(12, 299);
             buttonStartSort.Name = "buttonStartSort";
-            buttonStartSort.Size = new Size(279, 46);
+            buttonStartSort.Size = new Size(193, 44);
             buttonStartSort.TabIndex = 13;
             buttonStartSort.Text = "Trie";
             buttonStartSort.UseVisualStyleBackColor = true;
@@ -134,11 +136,33 @@
             txbPseudoCode.Size = new Size(300, 200);
             txbPseudoCode.TabIndex = 15;
             // 
+            // btnContinuer
+            // 
+            btnContinuer.Location = new Point(611, 392);
+            btnContinuer.Name = "btnContinuer";
+            btnContinuer.Size = new Size(92, 46);
+            btnContinuer.TabIndex = 17;
+            btnContinuer.Text = "Continuer";
+            btnContinuer.UseVisualStyleBackColor = true;
+            btnContinuer.Click += btnContinuer_Click;
+            // 
+            // btnStop
+            // 
+            btnStop.Location = new Point(513, 392);
+            btnStop.Name = "btnStop";
+            btnStop.Size = new Size(92, 46);
+            btnStop.TabIndex = 18;
+            btnStop.Text = "Stop";
+            btnStop.UseVisualStyleBackColor = true;
+            btnStop.Click += btnStop_Click;
+            // 
             // FrmBubble
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1445, 450);
+            Controls.Add(btnStop);
+            Controls.Add(btnContinuer);
             Controls.Add(txbPseudoCode);
             Controls.Add(panelResultat);
             Controls.Add(buttonStartSort);
@@ -162,5 +186,7 @@
         private System.Windows.Forms.Timer timer1;
         private Panel panelResultat;
         private TextBox txbPseudoCode;
+        private Button btnContinuer;
+        private Button btnStop;
     }
 }

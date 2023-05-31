@@ -28,10 +28,35 @@ namespace AlgoTri
             InitializeComponent();
             dc = new DisplayClass();
         }
+        private void getExecutionSpeed()
+        {
+            if (rbStepByStep.Checked == true)
+            {
+                timer1.Interval = 1;
+            }
+            else if (rbVerySlow.Checked == true)
+            {
+                timer1.Interval = 2500;
+            }
+            else if (rbSlow.Checked == true)
+            {
+                timer1.Interval = 2000;
+            }
+            else if (rbNormal.Checked == true)
+            {
+                timer1.Interval = 1000;
+            }
+            else if (rbFast.Checked == true)
+            {
+                timer1.Interval = 500;
+            }
+        }
 
         private void buttonStartSort_Click(object sender, EventArgs e)
         {
-            timer1.Interval = 500;
+            getExecutionSpeed();
+            btnStop.Enabled = true;
+            btnContinuer.Enabled = true;
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
         }
@@ -68,15 +93,22 @@ namespace AlgoTri
             if (nextIndex == tab.Length)
             {
                 isSorted = true;
+                btnContinuer.Enabled = false;
             }
 
             // Met à jour l'affichage
             dc.DisplayElements(tab, panelResultat, Font);
         }
 
-        // Cette fonction dessine les éléments du tableau dans un panneau
-   
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+        }
 
- 
+        private void btnContinuer_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
     }
 }

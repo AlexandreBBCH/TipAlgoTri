@@ -38,6 +38,9 @@
             buttonStartSort = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             panelResultat = new Panel();
+            btnStop = new Button();
+            btnContinuer = new Button();
+            txbPseudoCode = new TextBox();
             gbSpeedAnimation.SuspendLayout();
             SuspendLayout();
             // 
@@ -110,9 +113,9 @@
             // buttonStartSort
             // 
             buttonStartSort.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonStartSort.Location = new Point(498, 392);
+            buttonStartSort.Location = new Point(12, 299);
             buttonStartSort.Name = "buttonStartSort";
-            buttonStartSort.Size = new Size(279, 46);
+            buttonStartSort.Size = new Size(193, 46);
             buttonStartSort.TabIndex = 13;
             buttonStartSort.Text = "Trie";
             buttonStartSort.UseVisualStyleBackColor = true;
@@ -125,11 +128,42 @@
             panelResultat.Size = new Size(830, 361);
             panelResultat.TabIndex = 14;
             // 
+            // btnStop
+            // 
+            btnStop.Location = new Point(543, 392);
+            btnStop.Name = "btnStop";
+            btnStop.Size = new Size(92, 46);
+            btnStop.TabIndex = 19;
+            btnStop.Text = "Stop";
+            btnStop.UseVisualStyleBackColor = true;
+            btnStop.Click += btnStop_Click;
+            // 
+            // btnContinuer
+            // 
+            btnContinuer.Location = new Point(641, 392);
+            btnContinuer.Name = "btnContinuer";
+            btnContinuer.Size = new Size(92, 46);
+            btnContinuer.TabIndex = 20;
+            btnContinuer.Text = "Continuer";
+            btnContinuer.UseVisualStyleBackColor = true;
+            btnContinuer.Click += btnContinuer_Click;
+            // 
+            // txbPseudoCode
+            // 
+            txbPseudoCode.Location = new Point(1054, 12);
+            txbPseudoCode.Multiline = true;
+            txbPseudoCode.Name = "txbPseudoCode";
+            txbPseudoCode.Size = new Size(300, 200);
+            txbPseudoCode.TabIndex = 21;
+            // 
             // FrmSelect
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1053, 450);
+            ClientSize = new Size(1366, 450);
+            Controls.Add(txbPseudoCode);
+            Controls.Add(btnContinuer);
+            Controls.Add(btnStop);
             Controls.Add(panelResultat);
             Controls.Add(buttonStartSort);
             Controls.Add(gbSpeedAnimation);
@@ -138,6 +172,7 @@
             gbSpeedAnimation.ResumeLayout(false);
             gbSpeedAnimation.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -150,5 +185,8 @@
         private Button buttonStartSort;
         private System.Windows.Forms.Timer timer1;
         private Panel panelResultat;
+        private Button btnStop;
+        private Button btnContinuer;
+        private TextBox txbPseudoCode;
     }
 }

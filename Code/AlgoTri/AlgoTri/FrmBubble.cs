@@ -24,11 +24,36 @@ namespace AlgoTri
             dc = new DisplayClass();
 
         }
+        private void getExecutionSpeed()
+        {
+            if (rbStepByStep.Checked == true)
+            {
+                timer1.Interval = 1;
+            }
+            else if (rbVerySlow.Checked == true)
+            {
+                timer1.Interval = 2500;
+            }
+            else if (rbSlow.Checked == true)
+            {
+                timer1.Interval = 2000;
+            }
+            else if (rbNormal.Checked == true)
+            {
+                timer1.Interval = 1000;
+            }
+            else if (rbFast.Checked == true)
+            {
+                timer1.Interval = 500;
+            }
+        }
 
         private void btnStartSort_Click(object sender, EventArgs e)
         {
             // Définit l'intervalle de temps entre deux appels de la méthode timer1_Tick à 500ms
-            timer1.Interval = 500;
+            getExecutionSpeed();
+            btnStop.Enabled = true;
+            btnContinuer.Enabled = true;
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
         }
@@ -64,6 +89,7 @@ namespace AlgoTri
             if (!hasSwapped || currentElementIndex >= tab.Length) // Si aucun échange ou si tous les éléments sont déjà triés
             {
                 // On stop tout
+                btnContinuer.Enabled = false;
                 ((System.Windows.Forms.Timer)sender).Stop();
                 // L'élément actuel revient à 0;
                 currentElementIndex = 0;
@@ -73,6 +99,16 @@ namespace AlgoTri
         {
             // Mettre à jour le TextBox avec la ligne de pseudo-code en cours d'exécution
             txbPseudoCode.Text = pseudoCodeLines[lineIndex];
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+        }
+
+        private void btnContinuer_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
         }
     }
 }
