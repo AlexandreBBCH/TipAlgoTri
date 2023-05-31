@@ -34,6 +34,7 @@ Tâches réalisées :
 
 ### Tâche prévue pour le lendemain :
 
+
 ## | Jeudi | 04 | 05 | 2023 | 
 ### Tâche prévue dans la matinée : <br>
 - Création des graphiques de l'application et appliquer l'algorithme
@@ -91,3 +92,17 @@ Tâches réalisées :
 
 ### Tâche prévue pour le lendemain :
 - Implémenter les vitesses d'éxécution des algorithmes.
+
+## | Lundi | 22 | 05 | 2023 | 
+### Tâche prévue dans la matinée : <br>
+- Affichage du graphique avec des couleurs
+
+### Tâche prévue dans l'après-midi : <br>
+- Classe pour display le graphique
+
+### Récapitulatif de cette journée :
+- Absent
+
+### Tâche prévue pour le lendemain :
+- Pseudo code en direct de l'exécution
+
