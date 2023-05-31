@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AlgoTri
 {
@@ -19,6 +20,26 @@ namespace AlgoTri
         // Initialise un booléen pour indiquer si le tri est terminé
         bool isSorted = false;
         DisplayClass dc;
+        private string[] pseudoCodeLines = {
+            "SI(isSorted)",
+            "timer1.Stop()",
+            "RETOURNER",
+            "FIN SI",
+            "minIndex = nextIndex",
+            "POUR i = nextIndex + 1 JUSQU\'A tab.Longueur",
+            "SI(tab[i] < tab[minIndex])",
+            "minIndex = i",
+            "FIN POUR",
+            "temp = tab[nextIndex - 1]",
+            "tab[nextIndex - 1] = tab[minIndex]",
+            "tab[minIndex] = temp",
+            "nextIndex = nextIndex + 1",
+            "SI(nextIndex == tab.Longueur)",
+            "isSorted = VRAI",
+            "btnContinuer.Enabled = FAUX",
+            "dc.DisplayElements(tab, panelResultat, Font)"
+        };
+        int currentPseudoCodeLine = 0;
         public FrmSelect()
         {
             // Initialise l'index à 1, car le premier élément est considéré comme trié
@@ -59,7 +80,13 @@ namespace AlgoTri
                 isSorted = true;
                 btnContinuer.Enabled = false; // Désactive le bouton "Continuer"
             }
+            ExecutePseudoCodeLine(currentPseudoCodeLine);
 
+            currentPseudoCodeLine++;
+            if (currentPseudoCodeLine >= pseudoCodeLines.Length)
+            {
+                currentPseudoCodeLine = 0; // Revenir à la première ligne de pseudo-code
+            }
             // Met à jour l'affichage
             dc.DisplayElements(tab, panelResultat, Font);
         }
@@ -103,6 +130,11 @@ namespace AlgoTri
         private void btnStop_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+        }
+        private void ExecutePseudoCodeLine(int lineIndex)
+        {
+            // Mettre à jour le TextBox avec la ligne de pseudo-code en cours d'exécution
+            txbPseudoCode.Text = pseudoCodeLines[lineIndex];
         }
     }
 }

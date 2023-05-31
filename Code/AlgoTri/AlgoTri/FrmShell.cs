@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AlgoTri
 {
@@ -9,6 +10,25 @@ namespace AlgoTri
     {
         int[] tab = Enumerable.Range(1, 20).OrderBy(x => Guid.NewGuid()).Take(20).ToArray();
         DisplayClass dc;
+        private string[] pseudoCodeLines = {
+            "n = taille de tab",
+            "i = gap",
+            "TANT QUE(i<n)",
+            "temp = tab[i]",
+            "j = i",
+            "TANT QUE(j >= gap ET tab[j - gap] > temp)",
+            "tab[j] = tab[j - gap]",
+            "dc.DisplayElements(tab, panelResultat, Font)",
+            "j = j - gap",
+            "FIN TANT QUE",
+            "tab[j] = temp",
+            "dc.DisplayElements(tab, panelResultat, Font)",
+            "i = i + 1",
+            "FIN TANT QUE",
+            "timer1.Stop()",
+            "btnContinuer.Enabled = FAUX"
+        };
+        int currentPseudoCodeLine = 0;
         public FrmShell()
         {
             InitializeComponent();
@@ -71,6 +91,13 @@ namespace AlgoTri
                 }
             };
             timer1.Start();
+            ExecutePseudoCodeLine(currentPseudoCodeLine);
+            currentPseudoCodeLine++; // Passer à la prochaine ligne de pseudo-code
+
+            if (currentPseudoCodeLine >= pseudoCodeLines.Length)
+            {
+                currentPseudoCodeLine = 0; // Revenir à la première ligne de pseudo-code
+            }
         }
 
         private void btnContinuer_Click(object sender, EventArgs e)
@@ -81,6 +108,11 @@ namespace AlgoTri
         private void btnStop_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+        }
+        private void ExecutePseudoCodeLine(int lineIndex)
+        {
+            // Mettre à jour le TextBox avec la ligne de pseudo-code en cours d'exécution
+            txbPseudoCode.Text = pseudoCodeLines[lineIndex];
         }
     }
 }

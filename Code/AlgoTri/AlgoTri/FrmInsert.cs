@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AlgoTri
 {
@@ -18,6 +19,19 @@ namespace AlgoTri
         int nextIndex;
         // Initialise un booléen pour indiquer si le tri est terminé
         bool isSorted = false;
+        private string[] pseudoCodeLines = {
+            "TANT QUE(currentIndex > 0 ET tab[currentIndex - 1] > nextValue)",
+            "tab[currentIndex] = tab[currentIndex - 1]",
+            "currentIndex = currentIndex - 1",
+            "FIN TANT QUE",
+            "tab[currentIndex] = nextValue",
+            "nextIndex = nextIndex + 1",
+            "SI(nextIndex = taille de tab)",
+            "isSorted = VRAI",
+            "btnContinuer.Enabled = FAUX",
+            "FIN SI",
+        };
+        int currentPseudoCodeLine = 0;
 
         DisplayClass dc;
 
@@ -88,6 +102,7 @@ namespace AlgoTri
 
             // Incrémente l'index de la prochaine valeur à insérer
             nextIndex++;
+            
 
             // Si toutes les valeurs ont été insérées, le tableau est trié
             if (nextIndex == tab.Length)
@@ -95,7 +110,13 @@ namespace AlgoTri
                 isSorted = true;
                 btnContinuer.Enabled = false;
             }
+            ExecutePseudoCodeLine(currentPseudoCodeLine);
 
+            currentPseudoCodeLine++;
+            if (currentPseudoCodeLine >= pseudoCodeLines.Length)
+            {
+                currentPseudoCodeLine = 0; // Revenir à la première ligne de pseudo-code
+            }
             // Met à jour l'affichage
             dc.DisplayElements(tab, panelResultat, Font);
         }
@@ -109,6 +130,10 @@ namespace AlgoTri
         {
             timer1.Start();
         }
-
+        private void ExecutePseudoCodeLine(int lineIndex)
+        {
+            // Mettre à jour le TextBox avec la ligne de pseudo-code en cours d'exécution
+            txbPseudoCode.Text = pseudoCodeLines[lineIndex];
+        }
     }
 }
