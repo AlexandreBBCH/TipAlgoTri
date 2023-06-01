@@ -111,3 +111,18 @@ L'après midi, Achraf n'était pas la .
 
 ### Tâche prévue pour le lendemain :
 - Avec l'aide d'achraf malade aujourd'hui on va tenter d'avoir le visuel du pseudocode.
+
+
+## | Mercredi | 31 | 05 | 2023 | 
+### Tâche prévue dans la matinée : <br>
+- Alors on a repris les cours apres ce long weekend de folie furieuse.
+- Jai prevue de finir la doc du planning et du trello et avancer sur les dernier algo manquant concernant le pseudo code
+
+### Tâche prévue dans l'après-midi : <br>
+- Avec Achraf on a presque finis.
+
+### Récapitulatif de cette journée :
+- Il manque plus que le mode pas en pas
+
+### Tâche prévue pour le lendemain :
+- Demain c est le jour j de rendue on fignole.
