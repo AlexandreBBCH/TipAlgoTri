@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+// Auteurs : Zamader Achraf, Babich Alexandre
+// Date : 01.06.23
+// Fichier : FrmInsert.cs
 namespace AlgoTri
 {
     public partial class FrmInsert : Form

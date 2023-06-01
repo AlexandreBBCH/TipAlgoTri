@@ -1,5 +1,9 @@
 ﻿using System.Timers;
 
+// Auteurs : Zamader Achraf, Babich Alexandre
+// Date : 01.06.23
+// Fichier : FrmBubble.cs
+
 namespace AlgoTri
 {
     public partial class FrmBubble : Form

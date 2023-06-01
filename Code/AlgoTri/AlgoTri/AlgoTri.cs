@@ -1,3 +1,6 @@
+// Auteurs : Zamader Achraf, Babich Alexandre
+// Date : 01.06.23
+// Fichier : AlgoTri.cs
 namespace AlgoTri
 {
     public partial class AlgoTri : Form

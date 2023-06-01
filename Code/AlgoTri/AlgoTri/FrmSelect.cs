@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+// Auteurs : Zamader Achraf, Babich Alexandre
+// Date : 01.06.23
+// Fichier : FrmSelect.cs
 namespace AlgoTri
 {
     public partial class FrmSelect : Form
