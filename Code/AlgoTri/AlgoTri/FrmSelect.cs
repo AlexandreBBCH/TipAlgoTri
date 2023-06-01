@@ -7,56 +7,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AlgoTri
 {
     public partial class FrmSelect : Form
     {
-        // Initialise un tableau de 20 entiers, triés aléatoirement à l'aide de la méthode OrderBy().
         int[] tab = Enumerable.Range(1, 20).OrderBy(x => Guid.NewGuid()).Take(20).ToArray();
-        // Initialise un entier pour stocker l'index de la prochaine valeur à insérer
         int nextIndex;
-        // Initialise un booléen pour indiquer si le tri est terminé
         bool isSorted = false;
         DisplayClass dc;
         private string[] pseudoCodeLines = {
-            "SI(isSorted)",
-            "timer1.Stop()",
-            "RETOURNER",
-            "FIN SI",
-            "minIndex = nextIndex",
-            "POUR i = nextIndex + 1 JUSQU\'A tab.Longueur",
-            "SI(tab[i] < tab[minIndex])",
-            "minIndex = i",
-            "FIN POUR",
-            "temp = tab[nextIndex - 1]",
-            "tab[nextIndex - 1] = tab[minIndex]",
-            "tab[minIndex] = temp",
-            "nextIndex = nextIndex + 1",
-            "SI(nextIndex == tab.Longueur)",
-            "isSorted = VRAI",
-            "btnContinuer.Enabled = FAUX",
-            "dc.DisplayElements(tab, panelResultat, Font)"
-        };
+        "SI(isSorted)",
+        "timer1.Stop()",
+        "RETOURNER",
+        "FIN SI",
+        "minIndex = nextIndex",
+        "POUR i = nextIndex + 1 JUSQU\'A tab.Longueur",
+        "SI(tab[i] < tab[minIndex])",
+        "minIndex = i",
+        "FIN POUR",
+        "temp = tab[nextIndex - 1]",
+        "tab[nextIndex - 1] = tab[minIndex]",
+        "tab[minIndex] = temp",
+        "nextIndex = nextIndex + 1",
+        "SI(nextIndex == tab.Longueur)",
+        "isSorted = VRAI",
+        "btnContinuer.Enabled = FAUX",
+        "dc.DisplayElements(tab, panelResultat, Font)"
+    };
         int currentPseudoCodeLine = 0;
+        bool isStepByStepMode = false;
+
         public FrmSelect()
         {
-            // Initialise l'index à 1, car le premier élément est considéré comme trié
             nextIndex = 1;
             InitializeComponent();
             dc = new DisplayClass();
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // Si toutes les valeurs ont été triées, arrêter le timer
             if (isSorted)
             {
                 timer1.Stop();
+                if (!IsArraySorted(tab))
+                {
+                    Array.Sort(tab);
+                    dc.DisplayElements(tab, panelResultat, Font);
+                }
                 return;
             }
 
-            // Recherche la valeur minimale dans la partie non triée du tableau
             int minIndex = nextIndex;
             for (int i = nextIndex + 1; i < tab.Length; i++)
             {
@@ -66,53 +67,74 @@ namespace AlgoTri
                 }
             }
 
-            // Echange la valeur minimale avec la première valeur de la partie non triée du tableau
             int temp = tab[nextIndex - 1];
             tab[nextIndex - 1] = tab[minIndex];
             tab[minIndex] = temp;
 
-            // Incrémente l'index de la prochaine valeur à insérer
             nextIndex++;
 
-            // Si toutes les valeurs ont été insérées, le tableau est trié
             if (nextIndex == tab.Length)
             {
                 isSorted = true;
-                btnContinuer.Enabled = false; // Désactive le bouton "Continuer"
+                btnContinuer.Enabled = false;
             }
-            ExecutePseudoCodeLine(currentPseudoCodeLine);
 
+            ExecutePseudoCodeLine(currentPseudoCodeLine);
             currentPseudoCodeLine++;
             if (currentPseudoCodeLine >= pseudoCodeLines.Length)
             {
-                currentPseudoCodeLine = 0; // Revenir à la première ligne de pseudo-code
+                currentPseudoCodeLine = 0;
             }
-            // Met à jour l'affichage
+
             dc.DisplayElements(tab, panelResultat, Font);
+
+            if (isStepByStepMode)
+            {
+                timer1.Stop();
+            }
         }
+
+        private bool IsArraySorted(int[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                if (array[i] > array[i + 1])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private void getExecutionSpeed()
         {
-            if (rbStepByStep.Checked == true)
+            if (rbStepByStep.Checked)
             {
+                isStepByStepMode = true;
                 timer1.Interval = 1;
             }
-            else if (rbVerySlow.Checked == true)
+            else
             {
-                timer1.Interval = 2500;
-            }
-            else if (rbSlow.Checked == true)
-            {
-                timer1.Interval = 2000;
-            }
-            else if (rbNormal.Checked == true)
-            {
-                timer1.Interval = 1000;
-            }
-            else if (rbFast.Checked == true)
-            {
-                timer1.Interval = 500;
+                isStepByStepMode = false;
+                if (rbVerySlow.Checked)
+                {
+                    timer1.Interval = 2500;
+                }
+                else if (rbSlow.Checked)
+                {
+                    timer1.Interval = 2000;
+                }
+                else if (rbNormal.Checked)
+                {
+                    timer1.Interval = 1000;
+                }
+                else if (rbFast.Checked)
+                {
+                    timer1.Interval = 500;
+                }
             }
         }
+
         private void buttonStartSort_Click(object sender, EventArgs e)
         {
             getExecutionSpeed();
@@ -124,16 +146,19 @@ namespace AlgoTri
 
         private void btnContinuer_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            if (isStepByStepMode)
+            {
+                timer1.Start();
+            }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
             timer1.Stop();
         }
+
         private void ExecutePseudoCodeLine(int lineIndex)
         {
-            // Mettre à jour le TextBox avec la ligne de pseudo-code en cours d'exécution
             txbPseudoCode.Text = pseudoCodeLines[lineIndex];
         }
     }
