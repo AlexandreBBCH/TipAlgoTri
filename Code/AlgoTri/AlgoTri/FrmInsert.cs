@@ -42,27 +42,37 @@ namespace AlgoTri
             InitializeComponent();
             dc = new DisplayClass();
         }
+
+        bool isRunning;
         private void getExecutionSpeed()
         {
             if (rbStepByStep.Checked == true)
             {
                 timer1.Interval = 1;
+                isRunning = false;
             }
             else if (rbVerySlow.Checked == true)
             {
                 timer1.Interval = 2500;
+                isRunning = true;
             }
             else if (rbSlow.Checked == true)
             {
                 timer1.Interval = 2000;
+                isRunning = true;
+
             }
             else if (rbNormal.Checked == true)
             {
                 timer1.Interval = 1000;
+                isRunning = true;
+
             }
             else if (rbFast.Checked == true)
             {
                 timer1.Interval = 500;
+                isRunning = true;
+
             }
         }
 
@@ -102,7 +112,6 @@ namespace AlgoTri
 
             // Incrémente l'index de la prochaine valeur à insérer
             nextIndex++;
-            
 
             // Si toutes les valeurs ont été insérées, le tableau est trié
             if (nextIndex == tab.Length)
@@ -110,15 +119,31 @@ namespace AlgoTri
                 isSorted = true;
                 btnContinuer.Enabled = false;
             }
-            ExecutePseudoCodeLine(currentPseudoCodeLine);
 
             currentPseudoCodeLine++;
+
+            ExecutePseudoCodeLine(currentPseudoCodeLine);
+
             if (currentPseudoCodeLine >= pseudoCodeLines.Length)
             {
                 currentPseudoCodeLine = 0; // Revenir à la première ligne de pseudo-code
             }
+
             // Met à jour l'affichage
             dc.DisplayElements(tab, panelResultat, Font);
+
+            // Arrêter le timer à chaque étape
+            if (!isRunning)
+            {
+                timer1.Stop();
+            }
+        
+        }
+
+        private void btnContinuer_Click(object sender, EventArgs e)
+        {
+            stepByStepState++;
+            timer1.Start();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -126,14 +151,23 @@ namespace AlgoTri
             timer1.Stop();
         }
 
-        private void btnContinuer_Click(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
+        int stepByStepState = 1;
+
+
         private void ExecutePseudoCodeLine(int lineIndex)
         {
-            // Mettre à jour le TextBox avec la ligne de pseudo-code en cours d'exécution
-            txbPseudoCode.Text = pseudoCodeLines[lineIndex];
+            stepByStepState++;
+            if (pseudoCodeLines.Length - 1 > lineIndex)
+            {
+                txbPseudoCode.Text = pseudoCodeLines[lineIndex];
+            }
+            else
+            {
+                currentPseudoCodeLine = 0;
+            }
         }
+
     }
 }
+
+
