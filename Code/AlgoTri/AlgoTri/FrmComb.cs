@@ -223,7 +223,23 @@ namespace AlgoTri
         private void ExecutePseudoCodeLine(int lineIndex)
         {
             // Mettre à jour le TextBox avec la ligne de pseudo-code en cours d'exécution
-            txbPseudoCode.Text = pseudoCodeLines[lineIndex];
+            currentStep++;
+
+            if (pseudoCodeLines.Length - 1 > lineIndex)
+            {
+                txbPseudoCode.Text = pseudoCodeLines[lineIndex];
+            }
+            else
+            {
+                currentPseudoCodeLine = 0;
+            }
+        }
+
+        private void FrmComb_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
+
+

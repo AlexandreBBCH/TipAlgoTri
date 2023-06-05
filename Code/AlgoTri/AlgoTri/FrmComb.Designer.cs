@@ -40,7 +40,6 @@
             panelResultat = new Panel();
             btnStop = new Button();
             btnContinuer = new Button();
-            lblDebug = new Label();
             txbPseudoCode = new TextBox();
             gbSpeedAnimation.SuspendLayout();
             SuspendLayout();
@@ -149,15 +148,6 @@
             btnContinuer.UseVisualStyleBackColor = true;
             btnContinuer.Click += btnContinuer_Click;
             // 
-            // lblDebug
-            // 
-            lblDebug.AutoSize = true;
-            lblDebug.Location = new Point(43, 385);
-            lblDebug.Name = "lblDebug";
-            lblDebug.Size = new Size(59, 15);
-            lblDebug.TabIndex = 17;
-            lblDebug.Text = "Debugger";
-            // 
             // txbPseudoCode
             // 
             txbPseudoCode.Location = new Point(1068, 12);
@@ -172,7 +162,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1380, 450);
             Controls.Add(txbPseudoCode);
-            Controls.Add(lblDebug);
             Controls.Add(btnContinuer);
             Controls.Add(btnStop);
             Controls.Add(panelResultat);
@@ -180,6 +169,7 @@
             Controls.Add(gbSpeedAnimation);
             Name = "FrmComb";
             Text = "FrmComb";
+            Load += FrmComb_Load;
             gbSpeedAnimation.ResumeLayout(false);
             gbSpeedAnimation.PerformLayout();
             ResumeLayout(false);
@@ -198,7 +188,6 @@
         private Panel panelResultat;
         private Button btnStop;
         private Button btnContinuer;
-        private Label lblDebug;
         private TextBox txbPseudoCode;
     }
 }
